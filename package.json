@@ -1,0 +1,21 @@
+{
+  "name": "escegis-tron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/scripts/index.js",
+  "dependencies": {
+    "electron": "^5.0.3",
+    "leaflet": "^1.5.1",
+    "mongoose": "^5.5.13",
+    "npm": "^6.9.0"
+  },
+  "devDependencies": {
+    "electron-reload": "^1.4.0"
+  },
+  "scripts": {
+    "start": "electron src/main.js"
+  },
+  "keywords": [],
+  "author": "geocodery",
+  "license": "ISC"
+}
