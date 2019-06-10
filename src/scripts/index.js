@@ -1,6 +1,7 @@
 // Initialize leaflet.js
 const L = require('leaflet');
 const {conn} = require('./connect')
+const {dialog} = require('electron').remote;
 
 let mgo = new conn();
 var geojsonFeature;
@@ -19,6 +20,16 @@ var map = L.map('map', {
 	zoom: 6
 });
 
+// Propiedades de messageBox
+const options = {
+    type: 'info',
+    buttons: ['Aceptar'],
+    defaultId: 1,
+    title: 'ESCEGIS-TRON',
+    message: 'Respuesta de búsqueda',
+    detail: 'No se encontraron registros con la cadena de texto ingresada!',
+  };
+
 
 function buscarDistrito(){
     console.log('Buscando distrito');
@@ -30,7 +41,7 @@ function buscarDistrito(){
             return err;
         };
         if(datos.length == 0){
-            alert('No se econtraron registros');
+            console.log(dialog.showMessageBox(null, options))
             return;
         };
         geojsonFeature = datos.map(function(item){
